@@ -1,10 +1,14 @@
+import AuthGuard from '@/utils/authGuard'
 import React from 'react'
 
 const Dashboard = () => {
     return (
-        <div>
-            Dashboard
-        </div>
+        <AuthGuard>
+            <div>
+                Dashboard
+            </div>
+
+        </AuthGuard>
     )
 }
 

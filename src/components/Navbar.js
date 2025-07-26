@@ -4,8 +4,11 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import "./styles/nav.scss";
+import { useAuth } from '@/contexts/AuthContext';
 
 const Navbar = () => {
+    const { user, logout } = useAuth()
+
     const [open, setOpen] = useState(false)
 
     const logoRef = useRef(null);
@@ -69,20 +72,27 @@ const Navbar = () => {
             </div>
             <div className={`right window-view `} >
                 <div className="routes ">
+                    {
+                        user ? (
+                            <>
+                                <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/"} >Home</Link>
 
-                    <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/"} >Home</Link>
-                    <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/dashboard"} >Dashboard</Link>
+                                <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/dashboard"} >Dashboard</Link>
 
+                                <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/profile"} >Profile</Link>
 
+                                <button onClick={logout} className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 cursor-pointer">Logout</button>
+                            </>
 
+                        ) : (
+                            <>
+                                <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/"} >Home</Link>
+                                <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/login"} >Login</Link>
 
-                    <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/profile"} >Profile</Link>
+                            </>
 
-
-
-                    <button className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 cursor-pointer">Logout</button>
-
-
+                        )
+                    }
 
                 </div>
             </div>
@@ -91,14 +101,29 @@ const Navbar = () => {
                 style={{ backdropFilter: 'blur(10px)' }}>
                 <i onClick={handleClose} className="close ri-close-circle-fill"></i>
                 <div className="routes flex flex-col ">
-                    <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/"} >Home</Link>
-                    <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/dashboard"} >Dashboard</Link>
-                    <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/profile"} >Profile</Link>
-                    <button className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0">Logout</button>
+                    {
+                        user ? (
+                            <>
+                                <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/"} >Home</Link>
+                                <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/dashboard"} >Dashboard</Link>
+                                <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/profile"} >Profile</Link>
+                                <button onClick={logout} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0">Logout</button>
+                            </>
+                        ) : (
+                            <>
+
+                                <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/"} >Home</Link>
+
+                                <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/Login"} >Sign-in</Link>
+
+                            </>
+                        )
+                    }
+
 
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
