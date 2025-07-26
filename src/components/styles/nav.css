@@ -1,0 +1,50 @@
+.Navbar {
+  width: 100%;
+  height: 60px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.Navbar .left h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.Navbar .right .routes {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.Navbar .menu {
+  display: none;
+  font-size: 2rem;
+}
+.Navbar .mobile-view {
+  padding: 4rem 2rem 2rem 2rem;
+  font-size: 3rem;
+  z-index: 99;
+  right: 0;
+}
+.Navbar .mobile-view .routes {
+  align-items: center;
+  font-size: 2rem;
+  gap: 0;
+}
+.Navbar .mobile-view .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .Navbar .menu {
+    display: inline-block;
+  }
+  .Navbar .window-view {
+    display: none;
+  }
+}/*# sourceMappingURL=nav.css.map */
