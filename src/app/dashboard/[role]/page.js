@@ -1,7 +1,7 @@
 "use client"
 import Admin from "@/components/Admin";
 import Agent from "@/components/Agent";
-import Customer from "@/components/Customer";
+import Customer from "@/components/customer/Customer";
 import Manager from "@/components/Manager";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";

@@ -62,7 +62,7 @@ const Login = () => {
                     </div>
 
                     <div className="forgot">
-                        <p>Don't have an account <span onClick={routerHandler}>register</span></p>
+                        <p>Don't have an account <span onClick={routerHandler}>Sign-up</span></p>
                     </div>
 
                     <div className="btn">

@@ -68,7 +68,7 @@ const Navbar = () => {
     return (
         <div className='Navbar relative'>
             <div className="left">
-                <h1 onClick={handleHome} ref={logoRef}>FocusOn</h1>
+                <h1 onClick={handleHome} ref={logoRef}>PostOn</h1>
             </div>
             <div className={`right window-view `} >
                 <div className="routes ">
