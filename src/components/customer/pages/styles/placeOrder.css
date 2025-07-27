@@ -1,0 +1,168 @@
+.PlaceOrder {
+  width: 100%;
+  height: 100%;
+  padding: 0 7rem;
+  overflow-y: scroll;
+}
+.PlaceOrder::-webkit-scrollbar {
+  display: none;
+}
+@media (max-width: 768px) {
+  .PlaceOrder {
+    padding: 1rem;
+  }
+}
+.PlaceOrder .header {
+  width: 100%;
+  height: 5rem;
+}
+.PlaceOrder .header h1 {
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+  font-weight: 800;
+  text-align: end;
+}
+.PlaceOrder .content {
+  width: 100%;
+  padding-bottom: 5rem;
+}
+.PlaceOrder .content .layer1 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .PlaceOrder .content .layer1 {
+    flex-direction: column;
+  }
+}
+.PlaceOrder .content .layer1 .box {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 50%;
+  height: 5rem;
+  padding-left: 1rem;
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.PlaceOrder .content .layer1 .box p {
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+.PlaceOrder .content .layer1 .box h1 {
+  padding-left: 1rem;
+  font-size: 1.3rem;
+}
+@media (max-width: 768px) {
+  .PlaceOrder .content .layer1 .box {
+    width: 100%;
+  }
+}
+.PlaceOrder .content .layer2 {
+  margin-top: 1rem;
+  width: 100%;
+}
+.PlaceOrder .content .layer2 .box {
+  width: 100%;
+  height: 5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding-left: 1rem;
+}
+.PlaceOrder .content .layer2 .box p {
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+.PlaceOrder .content .layer2 .box h1 {
+  padding-left: 1rem;
+  font-size: 1.5rem;
+}
+.PlaceOrder .content .layer3 {
+  margin-top: 1rem;
+  width: 100%;
+}
+.PlaceOrder .content .layer3 .box {
+  width: 100%;
+  height: 5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding-left: 1rem;
+}
+.PlaceOrder .content .layer3 .box p {
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+.PlaceOrder .content .layer3 .drop {
+  margin-top: 0.5rem;
+  background-color: #58A0C8;
+}
+.PlaceOrder .content .layer3 .drop::-webkit-scrollbar {
+  display: none;
+}
+.PlaceOrder .content .layer3 .drop li {
+  font-size: 1.2rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  transition: all 0.6s ease;
+  font-weight: 600;
+}
+.PlaceOrder .content .layer3 .drop li:hover {
+  background-color: #113F67;
+}
+.PlaceOrder .content form .layer4 {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .PlaceOrder .content form .layer4 {
+    flex-direction: column;
+  }
+}
+.PlaceOrder .content form .layer4 .box {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 50%;
+  height: 5rem;
+  padding-left: 1rem;
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.PlaceOrder .content form .layer4 .box p {
+  font-size: 1.5rem;
+}
+.PlaceOrder .content form .layer4 .box input {
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.397);
+  margin-top: 0.5rem;
+  width: 90%;
+  height: 2rem;
+  font-size: 1.2rem;
+  padding-left: 1rem;
+  font-weight: 700;
+}
+.PlaceOrder .content form .layer4 .box input::-moz-placeholder {
+  font-weight: 100;
+}
+.PlaceOrder .content form .layer4 .box input::placeholder {
+  font-weight: 100;
+}
+@media (max-width: 768px) {
+  .PlaceOrder .content form .layer4 .box {
+    width: 100%;
+  }
+}
+.PlaceOrder .content form button {
+  margin-top: 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  background-color: #58A0C8;
+  font-weight: 100;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5em;
+}/*# sourceMappingURL=placeOrder.css.map */

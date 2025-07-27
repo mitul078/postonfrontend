@@ -2,9 +2,8 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import { createContext, useContext, useEffect, useState } from 'react'
-import Cookies from "js-cookie"
-import {jwtDecode} from 'jwt-decode'
-
+import axios from '@/lib/axiosConfig'
+import Cookies from 'js-cookie';
 
 const AuthContext = createContext()
 
@@ -13,23 +12,16 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const router = useRouter()
 
-    const checkAuth = () => {
-        const token = Cookies.get('token')
-        if (token) {
-            try {
-                const decoded = jwtDecode(token)
-                setUser(decoded)
-            } catch (error) {
-                Cookies.remove("token");
-                setUser(null);
-                router.push("/login");
-            }
+    const checkAuth = async () => {
+        try {
+            const res = await axios.get("/api/auth/me");
+            setUser(res.data.user)
+        } catch (err) {
+            setUser(null);
+            
+        } finally {
+            setLoading(false);
         }
-        else {
-            setUser(null)
-        }
-
-        setLoading(false)
     }
 
     const logout = () => {
@@ -43,7 +35,7 @@ export const AuthProvider = ({ children }) => {
         checkAuth()
     }, [])
     return (
-        <AuthContext.Provider value={{ user, setUser, checkAuth, loading , logout }}>
+        <AuthContext.Provider value={{ user, setUser, checkAuth, loading, logout }}>
             {children}
         </AuthContext.Provider>
     )
