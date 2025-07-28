@@ -1,8 +1,8 @@
 "use client"
-import Admin from "@/components/Admin";
-import Agent from "@/components/Agent";
+import Admin from "@/components/admin/Admin";
+import Agent from "@/components/agent/Agent";
 import Customer from "@/components/customer/Customer";
-import Manager from "@/components/Manager";
+import Manager from "@/components/manager/Manager";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";

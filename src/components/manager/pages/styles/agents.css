@@ -1,0 +1,97 @@
+.Agents {
+  width: 100%;
+  height: 100%;
+  padding: 0 7rem;
+  overflow-y: scroll;
+}
+.Agents::-webkit-scrollbar {
+  display: none;
+}
+@media (max-width: 768px) {
+  .Agents {
+    padding: 0;
+  }
+}
+.Agents .header {
+  width: 100%;
+}
+.Agents .header h1 {
+  font-size: 3rem;
+  text-align: end;
+  font-weight: 700;
+}
+.Agents .content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.Agents .content .box {
+  display: flex;
+  width: 100%;
+  height: 5rem;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.457);
+  color: white;
+}
+@media (max-width: 768px) {
+  .Agents .content .box {
+    flex-wrap: wrap;
+    width: 100%;
+    height: 15rem;
+    align-items: start;
+  }
+}
+.Agents .content .box .no {
+  text-align: center;
+  border-right: 2px solid black;
+}
+@media (max-width: 768px) {
+  .Agents .content .box .no {
+    font-size: 2rem;
+    border: none;
+    width: 10%;
+  }
+}
+.Agents .content .box .name {
+  text-align: center;
+  border-right: 2px solid black;
+}
+@media (max-width: 768px) {
+  .Agents .content .box .name {
+    font-size: 2rem;
+    border: none;
+    width: 45%;
+  }
+}
+.Agents .content .box .email {
+  text-align: center;
+  border-right: 2px solid black;
+}
+@media (max-width: 768px) {
+  .Agents .content .box .email {
+    border: none;
+    font-size: 2rem;
+    width: 45%;
+  }
+}
+.Agents .content .box .id {
+  text-align: center;
+  border-right: 2px solid black;
+}
+@media (max-width: 768px) {
+  .Agents .content .box .id {
+    border: none;
+    font-size: 2rem;
+    width: 100%;
+  }
+}
+.Agents .content .box .status {
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .Agents .content .box .status {
+    border: none;
+    font-size: 2rem;
+    width: 100%;
+  }
+}/*# sourceMappingURL=agents.css.map */
