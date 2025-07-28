@@ -3,7 +3,8 @@
     height: 100%;
     padding: 0 7rem;
     overflow-y: scroll;
-    &::-webkit-scrollbar{
+
+    &::-webkit-scrollbar {
         display: none;
     }
 
@@ -128,7 +129,8 @@
 
         form {
 
-            .layer4 {
+            .layer4,
+            .layer6 {
                 margin-top: 1rem;
                 width: 100%;
                 display: flex;
@@ -163,6 +165,58 @@
                         font-size: 1.2rem;
                         padding-left: 1rem;
                         font-weight: 700;
+
+                        &::placeholder {
+                            font-weight: 100;
+                        }
+                    }
+
+
+                    @media (max-width: 768px) {
+                        width: 100%;
+                    }
+                }
+
+            }
+
+            .layer5 {
+                margin-top: 1rem;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                }
+
+                .box {
+                    background-color: rgba(0, 0, 0, 0.1);
+                    width: 50%;
+                    height: 5rem;
+                    padding-left: 1rem;
+                    line-height: 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    p {
+                        font-size: 1.5rem;
+                    }
+
+
+                    input {
+                        outline: none;
+                        background-color: rgba(0, 0, 0, 0.397);
+                        margin-top: .5rem;
+                        width: 90%;
+                        height: 2rem;
+                        font-size: 1.2rem;
+                        padding-left: 1rem;
+                        font-weight: 700;
+
+
 
                         &::placeholder {
                             font-weight: 100;

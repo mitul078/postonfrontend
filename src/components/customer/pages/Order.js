@@ -12,7 +12,7 @@ const Order = () => {
         const getDetails = async () => {
             setLoading(true)
             try {
-                const res = await axios.get("/api/customer/get-orders")
+                const res = await axios.get("/api/customer/order")
                 setOrders(res.data.orders)
             } catch (error) {
                 console.log(error)
@@ -47,9 +47,12 @@ const Order = () => {
                             orders.map((order, i) => (
                                 <div key={i} className="box">
                                     <div className="head">
-                                        <h1>Product name</h1>
+                                        <h1>{order.productName}</h1>
                                     </div>
-                                    <div className="image"></div>
+                                    <div className="image">
+                                        <img src={order.productImage} alt="" />
+
+                                    </div>
                                     <div className="details">
                                         <div className="dates">
                                             <p>Arriving At: {order?.expectedDelivery?.split("T")[0] || "2005-01-16"}</p>
@@ -75,9 +78,22 @@ const Order = () => {
                                         </div>
                                         <div className="agent">
                                             <h1>Delivery Agent Detail:</h1>
-                                            <p>Name: {order.assignedAgentInfo?.username || "name"}</p>
-                                            <p>Email: {order.assignedAgentInfo?.email || "email"}</p>
-                                            <p>Contact no: {order.assignedAgentInfo?.contact || "contact"}</p>
+                                            {
+                                                order.assignedAgentInfo === null ? (
+                                                    <>
+                                                    <p className='text-green-500'>Order Received</p>
+                                                        <h1 className='font-bold text-md text-red-500 '>We will contact you as soon as possible </h1>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <p>Name: {order.assignedAgentInfo?.username || "name"}</p>
+                                                        <p>Email: {order.assignedAgentInfo?.email || "email"}</p>
+                                                        <p>Contact no: {order.assignedAgentInfo?.contact || "contact"}</p>
+
+                                                    </>
+
+                                                )
+                                            }
                                         </div>
                                     </div>
                                 </div>

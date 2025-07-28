@@ -23,8 +23,15 @@ const PlaceOrder = () => {
     const onSubmit = async (data) => {
         setLoading(true)
         try {
-            <Spinner/>
-            const res = await axios.post("/api/customer/make-order", data)
+            const formData = new FormData();
+            formData.append("origin", data.origin);
+            formData.append("destination", data.destination);
+            formData.append("productName", data.productName);
+            formData.append("productImage", data.productImage[0]);
+            formData.append("customerContact" , data.customerContact);
+            formData.append("customerPinCode" , data.customerPinCode);
+
+            const res = await axios.post("/api/customer/order", formData)
             if (res.status === 200) {
                 toast.success("Order Placed Successfully")
             }
@@ -110,8 +117,48 @@ const PlaceOrder = () => {
                         </div>
 
                     </div>
-                        <button type='submit'>{loading ? "Wait a moment" : "Place Order"}</button>
+                    <div className="layer5">
+                        <div className="box">
+                            <p>Product Details</p>
+                            <input {...register("productName")} type="text" placeholder='Enter Product Name' required />
+                        </div>
+                        <div className="box">
+                            <p>File(image as a proof)</p>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                {...register("productImage", {
+                                    required: "Product image is required",
+                                    validate: {
+                                        fileType: (files) => {
+                                            if (!files[0]) return "Product image is required";
+                                            const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+                                            return allowedTypes.includes(files[0].type) || "Only image files are allowed";
+                                        },
+                                        fileSize: (files) => {
+                                            if (!files[0]) return true;
+                                            return files[0].size <= 5 * 1024 * 1024 || "File size must be less than 5MB";
+                                        }
+                                    }
+                                })}
+                                className="w-full border p-2 rounded"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="layer6">
+                        <div className="box">
+                            <p>Contact No:</p>
+                            <input {...register("customerContact")} type="number" placeholder='Enter Contact Number' required />
+                        </div>
+                        <div className="box">
+                            <p>Pin-code</p>
+                            <input type="text" {...register("customerPinCode")} placeholder='Enter Pincode' required />
+                        </div>
+                    </div>
+                    <button type='submit'>{loading ? "Wait a moment" : "Place Order"}</button>
                 </form>
+
 
             </div>
 

@@ -110,7 +110,8 @@
 .PlaceOrder .content .layer3 .drop li:hover {
   background-color: #113F67;
 }
-.PlaceOrder .content form .layer4 {
+.PlaceOrder .content form .layer4,
+.PlaceOrder .content form .layer6 {
   margin-top: 1rem;
   width: 100%;
   display: flex;
@@ -119,11 +120,13 @@
   gap: 1rem;
 }
 @media (max-width: 768px) {
-  .PlaceOrder .content form .layer4 {
+  .PlaceOrder .content form .layer4,
+  .PlaceOrder .content form .layer6 {
     flex-direction: column;
   }
 }
-.PlaceOrder .content form .layer4 .box {
+.PlaceOrder .content form .layer4 .box,
+.PlaceOrder .content form .layer6 .box {
   background-color: rgba(0, 0, 0, 0.1);
   width: 50%;
   height: 5rem;
@@ -133,10 +136,12 @@
   flex-direction: column;
   justify-content: center;
 }
-.PlaceOrder .content form .layer4 .box p {
+.PlaceOrder .content form .layer4 .box p,
+.PlaceOrder .content form .layer6 .box p {
   font-size: 1.5rem;
 }
-.PlaceOrder .content form .layer4 .box input {
+.PlaceOrder .content form .layer4 .box input,
+.PlaceOrder .content form .layer6 .box input {
   outline: none;
   background-color: rgba(0, 0, 0, 0.397);
   margin-top: 0.5rem;
@@ -146,14 +151,63 @@
   padding-left: 1rem;
   font-weight: 700;
 }
-.PlaceOrder .content form .layer4 .box input::-moz-placeholder {
+.PlaceOrder .content form .layer4 .box input::-moz-placeholder, .PlaceOrder .content form .layer6 .box input::-moz-placeholder {
   font-weight: 100;
 }
-.PlaceOrder .content form .layer4 .box input::placeholder {
+.PlaceOrder .content form .layer4 .box input::placeholder,
+.PlaceOrder .content form .layer6 .box input::placeholder {
   font-weight: 100;
 }
 @media (max-width: 768px) {
-  .PlaceOrder .content form .layer4 .box {
+  .PlaceOrder .content form .layer4 .box,
+  .PlaceOrder .content form .layer6 .box {
+    width: 100%;
+  }
+}
+.PlaceOrder .content form .layer5 {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .PlaceOrder .content form .layer5 {
+    flex-direction: column;
+  }
+}
+.PlaceOrder .content form .layer5 .box {
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 50%;
+  height: 5rem;
+  padding-left: 1rem;
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.PlaceOrder .content form .layer5 .box p {
+  font-size: 1.5rem;
+}
+.PlaceOrder .content form .layer5 .box input {
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.397);
+  margin-top: 0.5rem;
+  width: 90%;
+  height: 2rem;
+  font-size: 1.2rem;
+  padding-left: 1rem;
+  font-weight: 700;
+}
+.PlaceOrder .content form .layer5 .box input::-moz-placeholder {
+  font-weight: 100;
+}
+.PlaceOrder .content form .layer5 .box input::placeholder {
+  font-weight: 100;
+}
+@media (max-width: 768px) {
+  .PlaceOrder .content form .layer5 .box {
     width: 100%;
   }
 }
