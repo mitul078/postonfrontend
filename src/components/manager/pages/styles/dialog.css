@@ -1,0 +1,35 @@
+.wrapper {
+  background-color: rgba(0, 0, 0, 0.641);
+}
+.wrapper .box {
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.775);
+}
+.wrapper .box h2 {
+  font-size: 3rem;
+}
+.wrapper .box form div {
+  margin-top: 1rem;
+}
+.wrapper .box form div input {
+  border: none;
+  outline: none;
+  height: 2rem;
+  padding-left: 1rem;
+}
+.wrapper .box form .btn {
+  display: flex;
+  gap: 1rem;
+}
+.wrapper .box form .btn .cancel {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  background-color: tomato;
+  cursor: pointer;
+}
+.wrapper .box form .btn .submit {
+  padding: 0.5rem 2rem;
+  background-color: skyblue;
+  font-weight: 800;
+  cursor: pointer;
+}/*# sourceMappingURL=dialog.css.map */

@@ -6,7 +6,6 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import PendingOrder from "@/components/manager/pages/PendingOrder"
 import AssignedOrder from "@/components/manager/pages/AssignedOrder"
-import AgentAssigned from "@/components/manager/pages/AgentAssigned"
 import AgentList from "@/components/manager/pages/AgentList"
 const Manager = () => {
 
@@ -30,7 +29,6 @@ const Manager = () => {
       case "agents": return <AgentList />;
       case "pending": return <PendingOrder />;
       case "assigned": return <AssignedOrder />
-      case "agentAssigned": return <AgentAssigned />
       default:
         return <PendingOrder />;
     }
@@ -78,17 +76,7 @@ const Manager = () => {
             Assigned Orders
           </div>
         </div>
-        <div onClick={() => {
-          setSelected("agentAssigned")
-          setIsExpanded(false)
-        }} className="box">
-          <div className="icon">
-            <h1>4</h1>
-          </div>
-          <div className="name">
-            Assign to Agent
-          </div>
-        </div>
+        
       </motion.div>
       <div className="main-content ">
         {renderContent()}

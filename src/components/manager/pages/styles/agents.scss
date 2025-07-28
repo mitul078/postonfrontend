@@ -37,6 +37,7 @@
             align-items: center;
             background-color: rgba(0, 0, 0, 0.457);
             color: white;
+            position: relative;
 
             @media (max-width: 768px) {
                 flex-wrap: wrap;
@@ -44,6 +45,7 @@
                 height: 15rem;
                 align-items: start;
             }
+
 
             .no {
                 text-align: center;
@@ -92,6 +94,7 @@
 
             .status {
                 text-align: center;
+                border-right: 2px solid black;
 
                 @media (max-width:768px) {
                     border: none;
@@ -99,6 +102,17 @@
                     width: 100%;
                 }
 
+            }
+            .button{
+                text-align: center;
+                button{
+                    background-color: seagreen;
+                    font-weight: 800;
+                    color: white;
+                    padding: .2rem .5rem;
+                    cursor: pointer;
+
+                }
             }
         }
     }

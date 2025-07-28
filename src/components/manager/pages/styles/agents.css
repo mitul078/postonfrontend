@@ -37,6 +37,7 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.457);
   color: white;
+  position: relative;
 }
 @media (max-width: 768px) {
   .Agents .content .box {
@@ -92,6 +93,7 @@
 }
 .Agents .content .box .status {
   text-align: center;
+  border-right: 2px solid black;
 }
 @media (max-width: 768px) {
   .Agents .content .box .status {
@@ -99,4 +101,14 @@
     font-size: 2rem;
     width: 100%;
   }
+}
+.Agents .content .box .button {
+  text-align: center;
+}
+.Agents .content .box .button button {
+  background-color: seagreen;
+  font-weight: 800;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
 }/*# sourceMappingURL=agents.css.map */

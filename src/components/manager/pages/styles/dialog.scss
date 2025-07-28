@@ -1,0 +1,47 @@
+.wrapper {
+    background-color: rgba(0, 0, 0, 0.641);
+    .box {
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, 0.775);
+
+        h2 {
+            font-size: 3rem;
+        }
+
+        form {
+            div {
+                margin-top: 1rem;
+
+                input {
+                    border: none;
+                    outline: none;
+                    height: 2rem;
+                    padding-left: 1rem;
+                }
+            }
+
+            .btn {
+                display: flex;
+                gap: 1rem;
+
+                .cancel {
+                    padding: .5rem 1rem;
+                    font-weight: 600;
+                    background-color: tomato;
+
+                    cursor: pointer;
+
+                }
+
+                .submit {
+                    padding: .5rem 2rem;
+                    background-color: skyblue;
+                    font-weight: 800;
+
+                    cursor: pointer;
+
+                }
+            }
+        }
+    }
+}

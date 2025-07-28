@@ -4,9 +4,13 @@ import "./styles/agents.scss"
 import axios from '@/lib/axiosConfig'
 import { useState } from 'react'
 import Spinner from '@/components/Spinner'
+import AssignDialog from './AssignDialog'
+import toast from 'react-hot-toast'
 const AgentList = () => {
     const [agents, setAgents] = useState([])
     const [loading, setLoading] = useState(false)
+    const [dialogOpen, setDialogOpen] = useState(false)
+    const [selectedAgentID, setSelectedAgentID] = useState("")
 
     useEffect(() => {
         const loadAgents = async () => {
@@ -22,6 +26,19 @@ const AgentList = () => {
         }
         loadAgents()
     }, [])
+
+    const handleAssignClick = (agentId) => {
+        setSelectedAgentID(agentId)
+        setDialogOpen(true)
+    }
+    const handleFormSubmit = async (data) => {
+        try {
+            const res = await axios.post("/api/manager/assign", data)
+            toast.success("Assigned SuccessFully")
+        } catch (error) {
+            toast.error("Assignment failed.")
+        }
+    }
 
     return (
         <div className='Agents'>
@@ -48,7 +65,9 @@ const AgentList = () => {
 
                             <div className="id w-[30%] truncate">{agent._id}</div>
 
-                            <div className="status w-[20%] ">Active</div>
+                            <div className="status w-[10%] ">Active</div>
+
+                            <div className="w-[10%] button"><button onClick={() => handleAssignClick(agent._id)}>Assign</button></div>
                         </div>
 
                     ))
@@ -60,6 +79,13 @@ const AgentList = () => {
                 }
 
             </div>
+
+            <AssignDialog
+                isOpen={dialogOpen}
+                onClose={() => setDialogOpen(false)}
+                agentID={selectedAgentID}
+                onSubmit={handleFormSubmit}
+            />
 
         </div>
     )
