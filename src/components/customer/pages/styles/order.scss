@@ -115,8 +115,14 @@
                 }
 
                 .agent {
+                    span{
+                        text-decoration: underline 1px black ;
+                        cursor: pointer;
+                        
+                        color: saddlebrown;
+                        font-weight: 700;
+                    }
                     p {
-
                         padding-left: 1rem;
                     }
                 }

@@ -55,7 +55,7 @@ const Order = () => {
                                     </div>
                                     <div className="details">
                                         <div className="dates">
-                                            <p>Arriving At: {order?.expectedDelivery?.split("T")[0] || "2005-01-16"}</p>
+                                            <p>Arriving At: {order?.expectedDelivery?.split("T")[0] || "Not Assigned"}</p>
                                             <p>Order Date: {order.createdAt?.split("T")[0]}</p>
                                         </div>
                                         <div className="status">
@@ -81,14 +81,18 @@ const Order = () => {
                                             {
                                                 order.assignedAgentInfo === null ? (
                                                     <>
-                                                    <p className='text-green-500'>Order Received</p>
+                                                        <p className='text-green-500'>Order Received</p>
                                                         <h1 className='font-bold text-md text-red-500 '>We will contact you as soon as possible </h1>
                                                     </>
                                                 ) : (
                                                     <>
-                                                        <p>Name: {order.assignedAgentInfo?.username || "name"}</p>
-                                                        <p>Email: {order.assignedAgentInfo?.email || "email"}</p>
-                                                        <p>Contact no: {order.assignedAgentInfo?.contact || "contact"}</p>
+                                                        <p>Name: <span>{order.assignedAgentInfo?.username || "Not Assigned"}</span></p>
+                                                        <p>Email: <span>
+                                                            {order.assignedAgentInfo?.email || "Not Assigned"}
+                                                        </span> </p>
+                                                        <p>Contact no: <span>
+                                                            {order.assignedAgentInfo?.contact || "Not Assigned"}
+                                                        </span></p>
 
                                                     </>
 

@@ -97,6 +97,13 @@
   opacity: 0.7;
   font-size: 1.3rem;
 }
+.Order .container .content .box .agent span {
+  -webkit-text-decoration: underline 1px black;
+          text-decoration: underline 1px black;
+  cursor: pointer;
+  color: saddlebrown;
+  font-weight: 700;
+}
 .Order .container .content .box .agent p {
   padding-left: 1rem;
 }/*# sourceMappingURL=order.css.map */
