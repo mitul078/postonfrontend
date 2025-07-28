@@ -1,0 +1,49 @@
+.Pending{
+    width: 100%;
+    height: 100%;
+    padding: 0 7rem;
+    overflow-y: scroll;
+    @media (max-width: 768px) {
+        padding: 1rem;
+    }
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    .header{
+        width: 100%;
+        h1{
+            font-size: 3rem;
+            text-align: end;
+            font-weight: 700;
+        }
+    }
+    .content{
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        padding-bottom: 7rem;
+        @media (max-width:768px) {
+            flex-direction: column;
+        }
+        .box{
+            padding: .5rem;
+            width: 22rem;
+            background-color: rgba(0, 0, 0, 0.417);
+            color: white;
+            position: relative;
+            span{
+                color: lightseagreen;
+                text-decoration: underline;
+            }
+            .number{
+                position: absolute;
+                bottom: 0;
+                right: 5px;
+                font-size: 2rem;
+            }
+            @media (max-width:768px) {
+                width: 100%;
+            }
+        }
+    }
+}
