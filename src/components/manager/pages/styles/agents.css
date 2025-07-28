@@ -9,7 +9,7 @@
 }
 @media (max-width: 768px) {
   .Agents {
-    padding: 0;
+    padding: 1rem;
   }
 }
 .Agents .header {
@@ -24,6 +24,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+@media (max-width: 768px) {
+  .Agents .content {
+    padding-bottom: 7rem;
+  }
 }
 .Agents .content .box {
   display: flex;
