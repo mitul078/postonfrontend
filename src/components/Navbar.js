@@ -80,6 +80,9 @@ const Navbar = () => {
                         user ? (
                             <>
                                 <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/"} >Home</Link>
+                                <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/products"} >Products</Link>
+
+                                <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/cart"} >Cart</Link>
 
                                 <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={`/dashboard/${user.role}`} >Dashboard</Link>
 
@@ -109,6 +112,9 @@ const Navbar = () => {
                         user ? (
                             <>
                                 <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/"} >Home</Link>
+                                <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/products"} >Products</Link>
+                                <Link className="nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/cart"} >Cart</Link>
+
                                 <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={`/dashboard/${user.role}`} >Dashboard</Link>
                                 <Link onClick={handleLinkClick} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0" href={"/profile"} >Profile</Link>
                                 <button onClick={logout} className="mobile-nav-link relative inline-block after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-r after:from-green-700 after:to-black after:transition-all after:duration-300 hover:after:w-full hover:after:left-0">Logout</button>

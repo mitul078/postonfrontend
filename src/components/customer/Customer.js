@@ -6,7 +6,7 @@ import { motion } from "motion/react"
 import { useState } from 'react'
 import Order from './pages/Order'
 import TrackOrder from './pages/TrackOrder'
-import PlaceOrder from './pages/PlaceOrder'
+
 import { useEffect } from 'react'
 
 const Customer = () => {
@@ -30,7 +30,6 @@ const Customer = () => {
         switch (selected) {
             case "order": return <Order />;
             case "track": return <TrackOrder />;
-            case "placed": return <PlaceOrder />
             default:
                 return <Order />;
         }
@@ -67,17 +66,7 @@ const Customer = () => {
                         Track Orders
                     </div>
                 </div>
-                <div onClick={() => {
-                    setSelected("placed")
-                    setIsExpanded(false)
-                }} className="box">
-                    <div className="icon">
-                        <h1>3</h1>
-                    </div>
-                    <div className="name">
-                        Placed Order
-                    </div>
-                </div>
+                
             </motion.div>
             <div className="main-content ">
                 {renderContent()}
