@@ -3,12 +3,15 @@ import React, { useEffect, useState } from 'react';
 import './style.scss';
 import { useForm } from 'react-hook-form';
 import axios from '@/lib/axiosConfig';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 const Delivery = () => {
     const { register, handleSubmit } = useForm()
     const [totalPrice, setTotalPrice] = useState(null)
     const [products, setProducts] = useState([])
     const [productDetails, setProductDetails] = useState([]);
     const [quantityMap, setQuantityMap] = useState({});
+    const router = useRouter()
 
     useEffect(() => {
         const info = async () => {
@@ -60,7 +63,8 @@ const Delivery = () => {
     const submitHandler = async (data) => {
         try {
             await axios.post("/api/customer/order", data)
-
+            toast.success("Order Placed Successfully")
+            router.push("/products")
         } catch (error) {
             console.log(error)
         }

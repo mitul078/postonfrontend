@@ -9,6 +9,9 @@ const Cart = () => {
     const [loading, setLoading] = useState(false)
     const [products, setProducts] = useState([])
     const [quantities, setQuantities] = useState({})
+    // const [checkoutLoading, setCheckoutLoading] = useState(false);
+
+
     const router = useRouter()
     useEffect(() => {
         setLoading(true)
@@ -18,8 +21,8 @@ const Cart = () => {
                 setProducts(res.data.cart.items)
 
                 const qtyMap = {}
-                res.data.cart.items.forEach((item, index) => {
-                    qtyMap[item.product._id] = item.quantity || 1
+                res.data.cart.items.forEach((item) => {
+                    qtyMap[item.productId._id] = item.quantity ?? 1
                 })
                 setQuantities(qtyMap)
             } catch (error) {
@@ -36,13 +39,15 @@ const Cart = () => {
 
     const increaseQuantity = (id) => {
         setQuantities(prev => ({
-            ...prev, [id]: prev[id] + 1
-        }))
+            ...prev,
+            [id]: (prev[id] || 1) + 1
+        }));
     }
     const decreaseQuantity = (id) => {
         setQuantities(prev => ({
-            ...prev, [id]: prev[id] > 1 ? prev[id] - 1 : 1
-        }))
+            ...prev,
+            [id]: prev[id] > 1 ? prev[id] - 1 : 1
+        }));
     }
 
     const cartTotal = products.reduce((acc, item) => {
@@ -70,9 +75,10 @@ const Cart = () => {
     const subtotal = cartTotal + tax + deliveryCharge;
 
 
-    const handleDetail = async() => {
+    const handleDetail = async () => {
+        setLoading(true)
         try {
-            await axios.post("/api/cart/checkout" , {
+            await axios.post("/api/cart/checkout", {
                 productWithQuantity: products.map((p) => ({
                     productId: p.productId._id,
                     quantity: quantities[p.productId._id] || 1,
@@ -87,13 +93,15 @@ const Cart = () => {
             router.push("/cart/delivery")
         } catch (error) {
             console.log(error)
+        }finally{
+            setLoading(false)
         }
     }
 
-    if (products.length === 0) {
+    if (!loading && products.length === 0) {
         return (
             <>
-                <div  className='text-3xl  w-full bg-red-200 text-black '><h1>Seems ,like you didn't like any products</h1></div>
+                <div className='text-3xl  w-full bg-red-200 text-black '><h1>Seems ,like you didn't like any products</h1></div>
             </>
         )
     }
@@ -124,7 +132,7 @@ const Cart = () => {
                                     <h1>${product.productId.price}</h1>
                                 </div>
                                 <div className="quantity">
-                                    <span onClick={() => increaseQuantity(product.productId._id)}>+</span> <h1>{quantities[product.productId._id]}</h1> <span onClick={() => decreaseQuantity(product.productId._id)}>-</span>
+                                    <span onClick={() => increaseQuantity(product.productId._id)}>+</span> <h1>{quantities[product.productId._id] || 1}</h1> <span onClick={() => decreaseQuantity(product.productId._id)}>-</span>
                                 </div>
 
                                 <button onClick={() => removeItem(product.productId._id)} className='delete'>remove</button>
@@ -155,7 +163,7 @@ const Cart = () => {
                             <h1>Subtotal: </h1>
                             <p>${subtotal}</p>
                         </div>
-                        <button onClick={handleDetail}>Proceed to checkout</button>
+                        <button onClick={handleDetail} disabled={loading}>{loading ? "Processing..":"Proceed to checkout"}</button>
                     </div>
                 </div>
             </div>
