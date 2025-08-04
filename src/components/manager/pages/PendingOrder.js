@@ -10,7 +10,7 @@ const PendingOrder = () => {
         const getOrders = async () => {
             setLoading(true)
             try {
-                const  res  = await axios.get("/api/manager/pendingOrders")
+                const res = await axios.get("/api/manager/pendingOrders")
                 setOrders(res.data.orders)
             } catch (error) {
                 console.log(error)
@@ -32,13 +32,13 @@ const PendingOrder = () => {
                 {loading ? (
                     <Spinner />
                 ) : (
-                    orders.map((order , index) => (
+                    orders.map((order, index) => (
                         <div key={index} className="box">
                             <h1>PackageID: <span> {order._id}</span></h1>
                             <h1>CustomerID: <span>{order.customerID}</span> </h1>
-                            <h1>Origin:-/ <span>{order.origin}</span> </h1>
-                            <h1>Destination:-/ <span>{order.destination}</span> </h1>
-                            <div className="number">{index+1}</div>
+                            <h1>Address:-/ <span>{order.customerAddress}</span> </h1>
+                            <h1>Order Date:-/ <span className='date'>{new Date(order.createdAt).toLocaleString('en-IN')}</span> </h1>
+                            <div className="number">{index + 1}</div>
                         </div>
                     ))
                 )}

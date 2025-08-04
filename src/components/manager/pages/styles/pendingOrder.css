@@ -33,14 +33,24 @@
 }
 .Pending .content .box {
   padding: 0.5rem;
-  width: 22rem;
-  background-color: rgba(0, 0, 0, 0.417);
+  width: 25rem;
+  background-color: rgba(0, 0, 0, 0.4);
   color: white;
   position: relative;
 }
+.Pending .content .box h1 {
+  color: ghostwhite;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
 .Pending .content .box span {
-  color: lightseagreen;
+  font-weight: 100;
+  color: white;
   text-decoration: underline;
+}
+.Pending .content .box .date {
+  font-weight: 900;
+  color: salmon;
 }
 .Pending .content .box .number {
   position: absolute;

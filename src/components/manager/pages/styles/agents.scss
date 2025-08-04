@@ -4,6 +4,21 @@
     padding: 0 7rem;
     overflow-y: scroll;
 
+    .disabled-btn {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .status.free {
+        color: #16a34a;
+        font-weight: 600;
+    }
+
+    .status.on-duty {
+        color: #f97316;
+        font-weight: 600;
+    }
+
     &::-webkit-scrollbar {
         display: none;
     }
@@ -26,6 +41,7 @@
         display: flex;
         flex-direction: column;
         gap: .5rem;
+
         @media (max-width: 768px) {
             padding-bottom: 7rem;
         }
@@ -103,9 +119,11 @@
                 }
 
             }
-            .button{
+
+            .button {
                 text-align: center;
-                button{
+
+                button {
                     background-color: seagreen;
                     font-weight: 800;
                     color: white;

@@ -65,9 +65,12 @@ const AgentList = () => {
 
                             <div className="id w-[30%] truncate">{agent._id}</div>
 
-                            <div className="status w-[10%] ">Active</div>
+                            <div className="status w-[10%] ">{agent.dutyStatus === 'on-duty' ? '🟠 On Duty' : '🟢 Free'}</div>
 
-                            <div className="w-[10%] button"><button onClick={() => handleAssignClick(agent._id)}>Assign</button></div>
+                            <div className="w-[10%] button"><button
+                                disabled={agent.dutyStatus === "on-duty"}
+                                className={agent.dutyStatus === "on-duty" ? "disabled-btn" : ""}
+                                onClick={() => handleAssignClick(agent._id)}>Assign</button></div>
                         </div>
 
                     ))

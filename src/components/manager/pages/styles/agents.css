@@ -4,6 +4,18 @@
   padding: 0 7rem;
   overflow-y: scroll;
 }
+.Agents .disabled-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.Agents .status.free {
+  color: #16a34a;
+  font-weight: 600;
+}
+.Agents .status.on-duty {
+  color: #f97316;
+  font-weight: 600;
+}
 .Agents::-webkit-scrollbar {
   display: none;
 }

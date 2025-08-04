@@ -70,7 +70,6 @@ const Order = () => {
                                 <div className="status">
                                     <h1>Order Placed At</h1>
                                     <h1>{new Date(order.createdAt).toLocaleString('en-IN')}</h1>
-
                                 </div>
                                 <div className="agent-info">
                                     {
