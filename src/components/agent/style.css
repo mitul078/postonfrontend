@@ -1,0 +1,62 @@
+.Agent {
+  width: 100vw;
+  height: calc(100% - 60px);
+  position: relative;
+}
+.Agent .sidebar {
+  width: 5rem;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 20;
+  background-color: #58A0C8;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 0.5rem;
+}
+@media (max-width: 768px) {
+  .Agent .sidebar {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    flex-direction: row;
+  }
+}
+.Agent .sidebar .box {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transition: background 0.5s ease;
+  cursor: pointer;
+}
+.Agent .sidebar .box:hover {
+  background-color: #113F67;
+}
+@media (max-width: 768px) {
+  .Agent .sidebar .box {
+    justify-content: center;
+  }
+}
+.Agent .sidebar .box .icon {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 5rem;
+}
+.Agent .sidebar .box .name {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .Agent .sidebar .box .name {
+    display: none;
+  }
+}
+.Agent .main-content {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=style.css.map */
