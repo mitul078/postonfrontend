@@ -93,7 +93,7 @@ const Cart = () => {
             router.push("/cart/delivery")
         } catch (error) {
             console.log(error)
-        }finally{
+        } finally {
             setLoading(false)
         }
     }
@@ -111,40 +111,35 @@ const Cart = () => {
                 <h1>items</h1>
             </div>
             <div className="content">
-                {loading ? <Spinner /> : (
 
-                    products.map((product, i) => (
+                <div className="boxes">
 
-                        <div key={product.productId._id} className="box">
-                            <div className="left">
+                    {loading ? <Spinner /> : (
+                        products.map((product) => (
+
+                            <div key={product.productId._id} className="box">
                                 <div className="image">
                                     <img src={product.productId.images[0]} alt="" />
                                 </div>
-                            </div>
-                            <div className="right">
                                 <div className="name">
                                     <h1>{product.productId.name}</h1>
                                 </div>
-                                <div className="des">
-                                    <h1>{product.productId.description}</h1>
-                                </div>
                                 <div className="price">
-                                    <h1>${product.productId.price}</h1>
+                                    <h1>{product.productId.price}</h1>
                                 </div>
                                 <div className="quantity">
-                                    <span onClick={() => increaseQuantity(product.productId._id)}>+</span> <h1>{quantities[product.productId._id] || 1}</h1> <span onClick={() => decreaseQuantity(product.productId._id)}>-</span>
+                                    <button onClick={() => increaseQuantity(product.productId._id)}>+</button>
+                                    <p>{quantities[product.productId._id] || 1}</p>
+                                    <button onClick={() => decreaseQuantity(product.productId._id)}>-</button>
                                 </div>
-
-                                <button onClick={() => removeItem(product.productId._id)} className='delete'>remove</button>
+                                <div className="remove">
+                                    <button onClick={() => removeItem(product.productId._id)}>Remove</button>
+                                </div>
                             </div>
+                        ))
+                    )}
 
-                        </div>
-                    ))
-
-                )
-
-                }
-
+                </div>
                 <div className="nextPage">
                     <div className="next">
                         <div className="b">
@@ -163,7 +158,7 @@ const Cart = () => {
                             <h1>Subtotal: </h1>
                             <p>${subtotal}</p>
                         </div>
-                        <button onClick={handleDetail} disabled={loading}>{loading ? "Processing..":"Proceed to checkout"}</button>
+                        <button onClick={handleDetail} disabled={loading}>{loading ? "Processing.." : "Proceed to checkout"}</button>
                     </div>
                 </div>
             </div>

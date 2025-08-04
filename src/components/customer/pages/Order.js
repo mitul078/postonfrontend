@@ -80,7 +80,7 @@ const Order = () => {
                                                 <p>Email: {order.assignedAgentInfo.email}</p>
                                             </>
                                         ) : (
-                                            <h1 className='ms'>Once order confirmed then we share the contact detail of delivery man</h1>
+                                            <h1 className='ms'>Once order confirmed then we share the delivery details.</h1>
                                         )
                                     }
                                 </div>
