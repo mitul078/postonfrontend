@@ -6,36 +6,14 @@ import Spinner from '@/components/Spinner'
 const Order = () => {
     const [loading, setLoading] = useState(false)
     const [orders, setOrders] = useState([])
+    const [productDetails, setProductDetails] = useState({});
 
     useEffect(() => {
         const getData = async () => {
             setLoading(true)
             try {
                 const res = await axios.get("/api/agent/orders")
-                const ordersData = res.data.orders
-                const productRes = await axios.get("/api/products");
-                const allProducts = productRes.data.products;
-
-                const updateOrders = ordersData.map((order) => {
-                    const updateItems = order.packageID.items.map((item) => {
-                        const product = allProducts.find(p => p._id === item.productId)
-                        return {
-                            ...item,
-                            image: product?.image?.[0] || ""
-                        }
-                    })
-
-                    return {
-                        ...order,
-                        packageID: {
-                            ...order.packageID,
-                            items: updateItems
-                        }
-                    }
-                })
-
-                setOrders(updateOrders)
-
+                setOrders(res.data.orders)
             } catch (error) {
                 console.log(error)
             } finally {
@@ -44,6 +22,23 @@ const Order = () => {
         }
         getData()
     }, [])
+
+
+    useEffect(() => {
+        const getProductById = async () => {
+            const res = await axios.get("/api/products");
+            const productMap = {};
+            res.data.products.forEach(product => {
+                productMap[product._id] = product;
+            });
+            setProductDetails(productMap);
+        }
+        getProductById()
+    }, [])
+
+    console.log(orders)
+
+
 
 
     return (
@@ -69,22 +64,27 @@ const Order = () => {
                             <div className="items">
                                 <h1>Items:</h1>
                                 <div className="images">
-                                    {
-                                        order.packageID.items.map((order , i) => (
-                                            <div key={i} className="image">
-                                                <img src={order.image}/>
-                                                <div className="quantity">{order.quantity}</div>
-                                            </div>
 
-                                        ))
-                                    }
+                                    {order.packageID.items.map((item, i) => {
+                                        const product = productDetails[item.productId];
+                                        return (
+                                            <div key={i} className="image">
+                                                {product ? (
+                                                    <>
+                                                        <img src={product.images?.[0] || "/no-image.png"}/>
+                                                        <div className="quantity">{item.quantity}</div>
+                                                    </>
+                                                ) : (
+                                                    <p>Loading product...</p>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         </div>
-
                     ))
                 )}
-
             </div>
         </div>
     )
